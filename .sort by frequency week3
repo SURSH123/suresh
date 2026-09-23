@@ -1,0 +1,28 @@
+class Solution {
+    public String frequencySort(String s) {
+        int[] freq = new int[128];
+
+        
+        for (char c : s.toCharArray()) {
+            freq[c]++;
+        }
+
+        
+        Character[] chars = new Character[s.length()];
+        int index = 0;
+
+        for (char c : s.toCharArray()) {
+            chars[index++] = c;
+        }
+
+        java.util.Arrays.sort(chars, (a, b) -> freq[b] - freq[a]);
+
+        
+        StringBuilder result = new StringBuilder();
+
+        for (char c : chars) {
+            result.append(c);
+        }
+
+        return result.toString();
+    }
